@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(45, 96, 173);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    color: white;
+    font-weight: bold;
+}
+
+p{
+    color: white;
+    font-weight: bold;
+}

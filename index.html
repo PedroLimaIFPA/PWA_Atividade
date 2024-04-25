@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="./manifest.json">
+</head>
+    <body>
+
+        <div class="logo">
+            <img src="logo144.png">
+        </div>
+
+
+        <div class="centro">
+            
+            <div class="foto">
+                <img src="user.png">
+            </div>
+
+            <div class="usuario">
+                <label>Usuário</label>
+                <input type="text" id="nomeUsuario" placeholder="Usuário">
+            </div>
+            
+            <div class="password">
+                <label>Senha</label>
+                <input type="password" id="senhaUsuario" placeholder="Senha">
+            </div>
+            
+
+            <div class="acessar">
+                <button onclick="entrar()">Entrar</button>
+            </div>
+            
+            <script>
+                function entrar() {
+                    // Obtém o nome de usuário e a senha
+                    const nomeUsuario = document.getElementById('nomeUsuario').value;
+                    const senhaUsuario = document.getElementById('senhaUsuario').value;
+            
+                    // Verifica as credenciais
+                    if (nomeUsuario === 'pedro' && senhaUsuario === '1234') {
+                        // Se as credenciais estiverem corretas, exibe um alerta de sucesso
+                        alert('Usuário logado com sucesso!');
+                        // Redireciona para a página de usuário cadastrado
+                        window.location.href = 'usuario_cadastrado.html';
+                    } else {
+                        // Se as credenciais estiverem incorretas, exibe um alerta de erro
+                        alert('Usuário ou senha incorretos. Por favor, tente novamente.');
+                    }
+                }
+            </script>
+            
+            
+        </div>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                        console.log('Service Worker registrado com sucesso:', registration.scope);
+                    }).catch(function(error) {
+                        console.log('Falha ao registrar o Service Worker:', error);
+                    });
+                });
+            }
+        </script>
+        
+    </body>
+</html>
