@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuário Cadastrado</title>
-    <link rel="stylesheet" href="usuario_cadastrado.css">
-    <link rel="manifest" href="manifest.json">
+    <title>Usuários Cadastrados</title>
+    <style>
+        body {
+            background-color: blue; /* Define a cor de fundo azul para o body */
+            color: white; /* Define a cor do texto como branco */
+        }
+    </style>
 </head>
 <body>
-    <h1>Usuário Cadastrado</h1>
-    <p>Seu usuário foi cadastrado com sucesso!</p>
+    <h1>Usuários Cadastrados</h1>
+    <ul id="listaUsuarios"></ul>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('Service Worker registrado com sucesso:', registration.scope);
-                }).catch(function(error) {
-                    console.log('Falha ao registrar o Service Worker:', error);
-                });
-            });
-        }
+        // Recupera os usuários do armazenamento local
+        const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+        // Exibe os usuários na página
+        const listaUsuarios = document.getElementById('listaUsuarios');
+        usuarios.forEach(usuario => {
+            const li = document.createElement('li');
+            li.textContent = usuario;
+            listaUsuarios.appendChild(li);
+        });
     </script>
-    
 </body>
 </html>

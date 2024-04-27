@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
 </head>
     <body>
 
         <div class="logo">
-            <img src="icon144.png">
+            <img src="logo144.png">
         </div>
 
 
@@ -36,20 +37,20 @@
             
             <script>
                 function entrar() {
-                    // Obtém o nome de usuário e a senha
+                    // Obtém o nome de usuário
                     const nomeUsuario = document.getElementById('nomeUsuario').value;
-                    const senhaUsuario = document.getElementById('senhaUsuario').value;
-            
-                    // Verifica as credenciais
-                    if (nomeUsuario === 'pedro' && senhaUsuario === '1234') {
-                        // Se as credenciais estiverem corretas, exibe um alerta de sucesso
-                        alert('Usuário logado com sucesso!');
-                        // Redireciona para a página de usuário cadastrado
-                        window.location.href = 'usuario_cadastrado.html';
-                    } else {
-                        // Se as credenciais estiverem incorretas, exibe um alerta de erro
-                        alert('Usuário ou senha incorretos. Por favor, tente novamente.');
+                    
+                    // Armazena o nome de usuário no local storage
+                    if (nomeUsuario) {
+                        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+                        usuarios.push(nomeUsuario);
+                        localStorage.setItem('usuarios', JSON.stringify(usuarios));
                     }
+                    
+                    // Exibe um alerta de sucesso
+                    alert('Usuário logado com sucesso!');
+                    // Redireciona para a página de usuário cadastrado
+                    window.location.href = 'usuario_cadastrado.html';
                 }
             </script>
             

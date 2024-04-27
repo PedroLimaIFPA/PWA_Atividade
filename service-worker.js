@@ -2,14 +2,14 @@
 const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
     '/',
-    '/index.html',
-    '/style.css',
+    'index.html',
+    'style.css',
     'usuario_cadastrado.html',
     'usuario_cadastrado.css',
-    '/logo144.png',
-    '/logo192.png',
-    '/logo512.png',
-    '/user.png'
+    'logo144.png',
+    'logo192.png',
+    'logo512.png',
+    'user.png'
     // Adicione mais arquivos que você deseja armazenar em cache aqui
 ];
 
